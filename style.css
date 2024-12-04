@@ -22,8 +22,10 @@ body {
 .etch-a-sketch-container {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
   border: 4px solid grey;
+  border-radius: 4px;
+  background-color: rgb(233, 41, 41);
 }
 
 .grid-container {
@@ -32,6 +34,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   border: 3px solid rgb(0, 0, 0);
+  border-radius: 2px;
+  background-color: white;
 }
 
 .grid-item {
@@ -43,5 +47,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+.etch-a-sketch__button {
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background-color: white;
+  cursor: pointer;
 }

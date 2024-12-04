@@ -1,6 +1,12 @@
 const gridContainer = document.querySelector("#grid-container");
 const setGridButton = document.querySelector("#set-grid");
-const resetGridButton = document.querySelector("#reset-grid");
+
+function randomColor() {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
 function generateGrid(size) {
   for (let i = 0; i < (size * size); i++) {
@@ -12,10 +18,11 @@ function generateGrid(size) {
   }
 
   const gridItems = document.querySelectorAll("#grid-item");
+  const resetGridButton = document.querySelector("#reset-grid");
 
   gridItems.forEach(item => {
     item.addEventListener("mouseenter", () => {
-      item.style.backgroundColor = "#252525";
+      item.style.backgroundColor = randomColor();
     })
   });
 
@@ -26,17 +33,16 @@ function generateGrid(size) {
   })
 }
 
-generateGrid(16);
-
 function setGrid() {
-  const userInput = prompt("Enter grid size (grid size must be less than 100");
-  if (userInput > 100 || typeof userInput === "string") {
-    alert("input must be number and less than 100");
-    return;
-  } else {
-    gridContainer.textContent = "";
-    generateGrid(userInput);
-  }
+  const userInput = Number(prompt("Enter grid size (grid size must be less than 100"))
+
+  if (userInput > 100) return alert("input must be less than 100");
+  if (isNaN(userInput)) return alert("input must be number");
+  if (!userInput) return;
+
+  gridContainer.textContent = "";
+  generateGrid(userInput);
 }
 
 setGridButton.addEventListener("click", setGrid);
+generateGrid(16);
