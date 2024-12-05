@@ -33,6 +33,8 @@ function generateGrid(size) {
   })
 }
 
+generateGrid(16);
+
 function setGrid() {
   const userInput = Number(prompt("Enter grid size (grid size must be less than 100"))
 
@@ -45,4 +47,3 @@ function setGrid() {
 }
 
 setGridButton.addEventListener("click", setGrid);
-generateGrid(16);
